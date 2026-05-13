@@ -94,7 +94,10 @@ body.page {
   font-size: var(--font-size-md);
   line-height: 1.65;
   color: var(--text-0);
-  background: var(--page-bg);
+  background:
+    radial-gradient(circle at top left, light-dark(rgb(152 178 255 / 0.18), rgb(59 130 246 / 0.16)), transparent 28rem),
+    radial-gradient(circle at top right, light-dark(rgb(21 94 239 / 0.12), rgb(96 165 250 / 0.14)), transparent 24rem),
+    var(--page-bg);
 }
 
 body.page::selection {
@@ -128,9 +131,23 @@ button {
 }
 
 .hero {
+  position: relative;
+  overflow: clip;
   padding-block: var(--space-9) var(--space-8);
   background: linear-gradient(var(--hero-angle), var(--surface-hero-start), var(--surface-hero-end));
   color: var(--text-inverse);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset-block-start: -8rem;
+  inset-inline-end: clamp(-6rem, -2vw, -2rem);
+  inline-size: clamp(14rem, 30vw, 22rem);
+  block-size: clamp(14rem, 30vw, 22rem);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(255 255 255 / 0.28), transparent 68%);
+  pointer-events: none;
 }
 
 .hero__content {
@@ -302,6 +319,10 @@ button {
   border-radius: var(--radius-lg);
   background: var(--surface-0);
   box-shadow: var(--shadow-soft);
+  transition:
+    transform var(--transition-base) ease,
+    border-color var(--transition-fast) ease,
+    box-shadow var(--transition-base) ease;
 }
 
 .card,
@@ -668,6 +689,15 @@ ul li::marker {
 .tag-list li:hover,
 .highlight-list li:hover {
   border-color: var(--accent-1);
+}
+
+.card:hover,
+.footer-panel:hover,
+.timeline-card:hover,
+.comment-item:hover,
+.info-block:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 1.5rem 3rem rgb(15 23 42 / 0.14);
 }
 
 @media (max-width: 52rem) {
