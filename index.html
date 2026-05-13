@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive CV of Mykyta Nosov with theme switching, browser storage, comments, and feedback form.">
+  <meta name="author" content="Mykyta Nosov">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <title>Mykyta Nosov - CV</title>
+</head>
+<body class="page">
+  <header class="hero" id="top">
+    <div class="hero__content shell">
+      <div class="hero__row">
+        <div>
+          <p class="eyebrow">Senior Full-Stack Developer / Line Manager</p>
+          <h1>Mykyta Nosov</h1>
+          <p class="hero__location">Lviv, Ukraine</p>
+        </div>
+        <div class="theme-control" aria-label="Theme switcher">
+          <span class="theme-control__label">Theme</span>
+          <span class="schedule-indicator" id="schedule-indicator" aria-live="polite">Scheduled now: Light</span>
+          <div class="theme-toggle-group" id="theme-toggle-group" role="group" aria-label="Choose active theme">
+            <span class="theme-toggle-group__thumb" id="theme-toggle-thumb" aria-hidden="true"></span>
+            <button class="theme-toggle" type="button" id="theme-light" aria-pressed="false" aria-label="Activate light theme">
+              <span class="theme-toggle__icon" aria-hidden="true">&#9728;</span>
+              <span>Light</span>
+            </button>
+            <button class="theme-toggle" type="button" id="theme-dark" aria-pressed="false" aria-label="Activate dark theme">
+              <span class="theme-toggle__icon" aria-hidden="true">&#9790;</span>
+              <span>Dark</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <nav class="contact-list" aria-label="Contacts">
+        <a class="contact-link" href="mailto:shajtanuch@gmail.com" data-contact="email">shajtanuch@gmail.com</a>
+        <a class="contact-link" href="https://t.me/shajtanuch" data-contact="telegram">Telegram</a>
+        <a class="contact-link" href="https://www.linkedin.com/in/shajtanuch/" data-contact="linkedin">LinkedIn</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="layout shell">
+    <section class="card card--summary">
+      <h2>Professional Summary</h2>
+      <p>
+        Senior Full-Stack Developer with 8.5 years of experience in web development,
+        focused on PHP and JavaScript across enterprise and product environments.
+        Experienced in backend and frontend delivery with WordPress, Laravel, Symfony,
+        Node.js, React, and Next.js.
+      </p>
+      <p>
+        Currently combines engineering leadership with hands-on development as a line manager
+        on an enterprise PHP/JS product with a WordPress-based domain foundation.
+        Strongest area is architecture, especially turning unstable or overcomplicated systems
+        into maintainable and scalable solutions.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Core Skills</h2>
+      <ul class="tag-list">
+        <li>PHP, OOP, Laravel, Symfony, Twig, PDO</li>
+        <li>JavaScript, TypeScript, Node.js</li>
+        <li>React, Next.js, Vue.js, GatsbyJS</li>
+        <li>WordPress, custom plugins, multisite, shared systems</li>
+        <li>REST API design, Swagger, backend integration</li>
+        <li>MongoDB, HTML5, Bootstrap, Tailwind CSS</li>
+        <li>Architecture design, mentoring, AI automation workflows</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Professional Highlights</h2>
+      <ul class="highlight-list">
+        <li>Take ownership of messy, high-risk systems and turn them into predictable, scalable architectures.</li>
+        <li>Bridge product, engineering, and infrastructure by turning vague goals into deliverable systems.</li>
+        <li>Eliminate unnecessary complexity, remove dead abstractions, and enforce practical engineering standards.</li>
+        <li>Design AI-assisted workflows, tools, and pipelines that scale team output.</li>
+        <li>Stabilize complex WordPress architectures including multisite, plugins, and shared systems.</li>
+        <li>Connect legacy and modern stacks, especially WordPress with React and TypeScript, in a predictable way.</li>
+        <li>Improve engineering quality through mentoring, code standards, and pragmatic architecture decisions.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Work Experience</h2>
+
+      <div class="timeline">
+        <article class="timeline-item featured-role">
+          <p class="timeline-date"><time datetime="2024-05">May 2024</time> - Present</p>
+          <div class="timeline-card">
+            <h3>Senior Full-Stack Developer (ReactJS / PHP)</h3>
+            <p class="experience-meta"><strong>Forte Group</strong></p>
+            <ul>
+              <li>Develop enterprise production systems using React and PHP.</li>
+              <li>Contribute to architecture and scaling decisions for complex web products.</li>
+              <li>Work across frontend and backend layers in a modern full-stack environment.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <p class="timeline-date"><time datetime="2023-05">May 2023</time> - Present</p>
+          <div class="timeline-card">
+            <h3>Freelance / Self-Employed</h3>
+            <ul>
+              <li>Deliver personal and client web projects independently.</li>
+              <li>Design solutions, define architecture, and implement full-stack features.</li>
+              <li>Use Node.js and the broader JavaScript ecosystem for practical delivery.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <p class="timeline-date"><time datetime="2023-07">Jul 2023</time> - <time datetime="2024-02">Feb 2024</time></p>
+          <div class="timeline-card">
+            <h3>WordPress Developer</h3>
+            <p class="experience-meta"><strong>Digital Silk</strong></p>
+            <ul>
+              <li>Built custom WordPress solutions for production client projects.</li>
+              <li>Worked on site customization, themes, plugins, and platform-level improvements.</li>
+              <li>Supported delivery in a fast-moving agency environment.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <p class="timeline-date"><time datetime="2022-12">Dec 2022</time> - <time datetime="2023-12">Dec 2023</time></p>
+          <div class="timeline-card">
+            <h3>Mentor (Frontend)</h3>
+            <p class="experience-meta"><strong>Hillel IT School</strong></p>
+            <ul>
+              <li>Taught frontend fundamentals including HTML, JavaScript, and Node.js basics.</li>
+              <li>Mentored students and helped structure technical knowledge.</li>
+              <li>Supported communication and growth in a part-time teaching role.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <p class="timeline-date"><time datetime="2022-12">Dec 2022</time> - <time datetime="2023-04">Apr 2023</time></p>
+          <div class="timeline-card">
+            <h3>PHP Developer</h3>
+            <p class="experience-meta"><strong>N-iX</strong></p>
+            <ul>
+              <li>Worked on backend PHP development in a structured enterprise environment.</li>
+              <li>Used Twig and related backend tooling in production tasks.</li>
+              <li>Contributed to maintainable server-side implementation.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <p class="timeline-date"><time datetime="2022-01">Jan 2022</time> - <time datetime="2022-09">Sep 2022</time></p>
+          <div class="timeline-card">
+            <h3>Middle Software Engineer (PHP, WordPress, React)</h3>
+            <p class="experience-meta"><strong>Sigma Software Group</strong></p>
+            <ul>
+              <li>Delivered full-stack features with PHP and React.</li>
+              <li>Worked on WordPress-based systems and REST API integration.</li>
+              <li>Supported product development in a large engineering organization.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <p class="timeline-date"><time datetime="2020-09">Sep 2020</time> - <time datetime="2022-01">Jan 2022</time></p>
+          <div class="timeline-card">
+            <h3>Middle Frontend Developer (React, WordPress, PHP)</h3>
+            <p class="experience-meta"><strong>SoftBlues</strong></p>
+            <ul>
+              <li>Built React-based frontend features for production web systems.</li>
+              <li>Worked with WordPress integration and full-stack workflows.</li>
+              <li>Expanded from frontend responsibilities into broader delivery tasks.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <p class="timeline-date"><time datetime="2015">2015</time> - <time datetime="2020-01">Jan 2020</time></p>
+          <div class="timeline-card">
+            <h3>Earlier Roles</h3>
+            <ul>
+              <li>WordPress Developer, ITKitchen (<time datetime="2019-09">Sep 2019</time> - <time datetime="2020-01">Jan 2020</time>)</li>
+              <li>WordPress Developer, IsraeliT (<time datetime="2019-06">Jun 2019</time> - <time datetime="2019-09">Sep 2019</time>)</li>
+              <li>Frontend Developer (Freelance) (<time datetime="2022-09">Sep 2022</time> - <time datetime="2023-03">Mar 2023</time>)</li>
+              <li>System Administrator (<time datetime="2015">2015</time> - <time datetime="2016">2016</time>)</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="card info-grid">
+      <h2>Education</h2>
+      <article class="info-block">
+        <p>
+          <strong>Lviv Polytechnic National University</strong><br>
+          Currently pursuing higher education in Cybersecurity.
+        </p>
+      </article>
+      <article class="info-block" id="languages">
+        <h2>Languages</h2>
+        <ul>
+          <li>Ukrainian - Native</li>
+          <li>English - B2</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="card">
+      <div class="section-heading">
+        <div>
+          <h2>Employer Comments</h2>
+          <p class="section-meta">Loaded from JSONPlaceholder using a configurable post variant.</p>
+        </div>
+        <span class="comment-badge" id="comment-variant-badge">Variant 1</span>
+      </div>
+      <div class="status-box" id="comments-status" role="status">Loading comments...</div>
+      <ol class="comment-list" id="comment-list"></ol>
+    </section>
+  </main>
+
+  <footer class="footer shell">
+    <section class="footer-panel">
+      <div class="section-heading">
+        <div>
+          <h2>Runtime Snapshot</h2>
+          <p class="section-meta">Stored in localStorage and rendered from the latest saved browser snapshot.</p>
+        </div>
+      </div>
+      <div class="runtime-grid" id="runtime-grid"></div>
+    </section>
+    <p class="footer-note">Prepared for Laboratory Work No. 4 with JavaScript, localStorage, network requests, and dynamic theme control.</p>
+  </footer>
+
+  <button class="floating-feedback-button" type="button" id="feedback-open" aria-label="Open feedback form">
+    <span class="floating-feedback-button__icon" aria-hidden="true">&#9993;</span>
+    <span>Feedback</span>
+  </button>
+
+  <dialog class="feedback-dialog" id="feedback-dialog">
+    <form
+      class="feedback-form"
+      id="feedback-form"
+      method="POST"
+      novalidate
+    >
+      <div class="dialog-head">
+        <div>
+          <p class="eyebrow eyebrow--dialog">Feedback</p>
+          <h2>Send a message</h2>
+        </div>
+        <button class="icon-button" type="button" id="feedback-close" aria-label="Close feedback form">&times;</button>
+      </div>
+
+      <p class="dialog-copy">This form opens automatically after one minute on the page and is ready for Formspree integration.</p>
+
+      <input id="feedback-opened-at" name="opened_at" type="hidden" value="">
+
+      <label class="visually-hidden" aria-hidden="true">
+        <span>Leave this field empty</span>
+        <input id="feedback-company" name="company" type="text" tabindex="-1" autocomplete="off">
+      </label>
+
+      <label class="field">
+        <span>Name</span>
+        <input id="feedback-name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="80">
+      </label>
+
+      <label class="field">
+        <span>Email</span>
+        <input id="feedback-email" name="email" type="email" autocomplete="email" required maxlength="120">
+      </label>
+
+      <label class="field">
+        <span>Phone number</span>
+        <input id="feedback-phone" name="phone" type="tel" autocomplete="tel" required inputmode="tel">
+      </label>
+
+      <label class="field">
+        <span>Message</span>
+        <textarea id="feedback-message" name="message" rows="5" required minlength="10" maxlength="1200"></textarea>
+      </label>
+
+      <div class="form-status" id="form-status" aria-live="polite"></div>
+
+      <div class="dialog-actions">
+        <button class="button button--secondary" type="button" id="feedback-later">Later</button>
+        <button class="button button--primary" type="submit">Send</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>
