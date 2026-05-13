@@ -18,6 +18,11 @@ Interactive personal CV website with:
 - `styles.css` - visual styles and responsive layout
 - `script.js` - interactive behavior
 
+## Environments
+
+- `main` -> production deployment
+- `staging` -> preview deployment for intermediate verification on Vercel
+
 ## Run Locally
 
 Open `index.html` in a browser.
