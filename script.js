@@ -116,17 +116,36 @@
   };
 
   const Theme = {
-    state: {
-      mode: "auto",
-      active: "light",
-      scheduled: "light",
-    },
+    state: null,
+    renderFrameId: 0,
 
     init() {
+      this.state = this.createState();
       this.state.mode = this.readPreference();
-      this.apply();
+      this.syncState();
       this.bindEvents();
       this.scheduleRefresh();
+    },
+
+    createState() {
+      return new Proxy(
+        {
+          mode: "auto",
+          active: "light",
+          scheduled: "light",
+        },
+        {
+          set: (target, property, value) => {
+            if (target[property] === value) {
+              return true;
+            }
+
+            target[property] = value;
+            this.requestRender();
+            return true;
+          },
+        }
+      );
     },
 
     bindEvents() {
@@ -141,7 +160,7 @@
 
     scheduleRefresh() {
       window.setInterval(() => {
-        this.apply();
+        this.syncState();
       }, 60_000);
     },
 
@@ -150,25 +169,13 @@
 
       this.state.mode = nextMode;
       Storage.set(Config.storageKeys.theme, nextMode);
-      this.runTransition(() => {
-        this.apply();
-      });
+      this.syncState();
     },
 
-    runTransition(update) {
-      if (typeof document.startViewTransition === "function") {
-        document.startViewTransition(update);
-        return;
-      }
-
-      update();
-    },
-
-    apply() {
+    syncState() {
       this.state.scheduled = this.resolveScheduled();
-      this.state.active = this.resolveActive();
-      Dom.nodes.root.dataset.theme = this.state.active;
-      this.render();
+      this.state.active = this.resolveActive(this.state.mode, this.state.scheduled);
+      this.requestRender();
     },
 
     resolveScheduled() {
@@ -178,12 +185,23 @@
       return hours >= start && hours < end ? "light" : "dark";
     },
 
-    resolveActive() {
-      if (this.state.mode === "light" || this.state.mode === "dark") {
-        return this.state.mode;
+    resolveActive(mode, scheduled) {
+      if (mode === "light" || mode === "dark") {
+        return mode;
       }
 
-      return this.state.scheduled;
+      return scheduled;
+    },
+
+    requestRender() {
+      if (this.renderFrameId !== 0) {
+        return;
+      }
+
+      this.renderFrameId = window.requestAnimationFrame(() => {
+        this.renderFrameId = 0;
+        this.render();
+      });
     },
 
     render() {
@@ -193,6 +211,10 @@
       const statusText = isAuto
         ? `Scheduled now: ${scheduledLabel}. Active: ${activeLabel}.`
         : `Scheduled now: ${scheduledLabel}. Active override: ${activeLabel}.`;
+
+      if (Dom.nodes.root.dataset.theme !== this.state.active) {
+        Dom.nodes.root.dataset.theme = this.state.active;
+      }
 
       Dom.nodes.scheduleIndicator.textContent = statusText;
       Dom.nodes.scheduleIndicator.dataset.mode = isAuto ? "auto" : "manual";
