@@ -347,8 +347,8 @@ button {
     box-shadow var(--transition-base) ease;
 }
 
-.card,
-.footer-panel {
+card,
+footer-panel {
   padding: var(--space-7);
 }
 
@@ -357,21 +357,21 @@ button {
 }
 
 .section-meta,
-.dialog-copy,
-.footer-note {
+dialog-copy,
+footer-note {
   margin: var(--space-2) 0 0;
   color: var(--text-1);
 }
 
-.tag-list,
-.highlight-list,
-.comment-list {
+tag-list,
+highlight-list,
+comment-list {
   margin: var(--space-0);
   padding: var(--space-0);
 }
 
-.tag-list,
-.highlight-list {
+tag-list,
+highlight-list {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
@@ -453,7 +453,7 @@ button {
   background: var(--accent-0);
 }
 
-.featured-role .timeline-card {
+featured-role .timeline-card {
   border-color: var(--accent-0);
   background: var(--surface-2);
 }
@@ -464,7 +464,7 @@ button {
   gap: var(--space-5);
 }
 
-.info-grid > h2 {
+info-grid > h2 {
   grid-column: 1 / -1;
 }
 
@@ -494,7 +494,7 @@ button {
   gap: var(--space-2);
 }
 
-.comment-item__body {
+comment-item__body {
   margin: var(--space-0);
   color: var(--text-0);
 }
@@ -508,8 +508,8 @@ button {
   color: var(--danger-0);
 }
 
-.status-box[data-state="success"],
-.form-status[data-state="success"] {
+status-box[data-state="success"],
+form-status[data-state="success"] {
   color: var(--success-0);
 }
 
@@ -526,13 +526,13 @@ button {
   background: var(--surface-1);
 }
 
-.runtime-entry dt {
+runtime-entry dt {
   margin: var(--space-0);
   font-size: var(--font-size-xs);
   color: var(--text-1);
 }
 
-.runtime-entry dd {
+runtime-entry dd {
   margin: var(--space-2) 0 0;
   color: var(--text-0);
   word-break: break-word;
@@ -546,7 +546,7 @@ button {
   text-align: center;
 }
 
-.floating-feedback-button {
+floating-feedback-button {
   position: fixed;
   inset-inline-end: var(--space-5);
   inset-block-end: var(--space-5);
@@ -563,13 +563,13 @@ button {
   box-shadow: 0 1rem 2rem rgb(21 94 239 / 0.28);
 }
 
-.floating-feedback-button__icon {
+floating-feedback-button__icon {
   font-size: 1rem;
   line-height: 1;
 }
 
-.floating-feedback-button:hover,
-.floating-feedback-button:focus-visible {
+floating-feedback-button:hover,
+floating-feedback-button:focus-visible {
   filter: brightness(1.05);
 }
 
@@ -595,13 +595,13 @@ button {
 }
 
 @starting-style {
-  .feedback-dialog:open {
+  feedback-dialog:open {
     opacity: 0;
     transform: translateY(1rem) scale(0.98);
   }
 }
 
-.feedback-dialog::backdrop {
+feedback-dialog::backdrop {
   background: var(--surface-backdrop);
   backdrop-filter: blur(0.5rem);
 }
@@ -614,14 +614,14 @@ button {
   box-shadow: var(--shadow-dialog);
 }
 
-.dialog-head {
+dialog-head {
   display: flex;
   align-items: start;
   justify-content: space-between;
   gap: var(--space-4);
 }
 
-.icon-button {
+icon-button {
   inline-size: 2.75rem;
   block-size: 2.75rem;
   border: var(--line-width) solid var(--border-0);
@@ -630,13 +630,13 @@ button {
   background: var(--surface-1);
 }
 
-.field {
+field {
   display: grid;
   gap: var(--space-2);
   color: var(--text-1);
 }
 
-.visually-hidden {
+visually-hidden {
   position: absolute;
   inline-size: 1px;
   block-size: 1px;
@@ -706,18 +706,27 @@ ul li::marker {
 
 .timeline-card:hover,
 .comment-item:hover,
-runtime-entry:hover,
-info-block:hover,
-tag-list li:hover,
-highlight-list li:hover {
+.runtime-entry:hover,
+.info-block:hover,
+.tag-list li:hover,
+.highlight-list li:hover {
   border-color: var(--accent-1);
 }
 
-card:hover,
-footer-panel:hover,
-timeline-card:hover,
-comment-item:hover,
-info-block:hover {
+:is(.runtime-entry:hover, .info-block:hover, .tag-list li:hover, .highlight-list li:hover) {
+  border-color: var(--accent-1);
+}
+
+:is(.card:hover, .footer-panel:hover, .timeline-card:hover, .comment-item:hover, .info-block:hover) {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 1.5rem 3rem rgb(15 23 42 / 0.14);
+}
+
+.card:hover,
+.footer-panel:hover,
+.timeline-card:hover,
+.comment-item:hover,
+.info-block:hover {
   transform: translateY(-0.25rem);
   box-shadow: 0 1.5rem 3rem rgb(15 23 42 / 0.14);
 }
@@ -828,7 +837,7 @@ info-block:hover {
   padding-inline-start: var(--space-7);
 }
 
-.timeline-item {
+timeline-item {
   position: relative;
   display: grid;
   grid-template-columns: minmax(10rem, 12rem) minmax(0, 1fr);
@@ -843,13 +852,13 @@ info-block:hover {
   background: var(--surface-1);
 }
 
-.runtime-entry dt {
+runtime-entry dt {
   margin: var(--space-0);
   font-size: var(--font-size-xs);
   color: var(--text-1);
 }
 
-.runtime-entry dd {
+runtime-entry dd {
   margin: var(--space-2) 0 0;
   color: var(--text-0);
   word-break: break-word;
