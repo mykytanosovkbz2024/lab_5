@@ -175,7 +175,7 @@ button {
 }
 
 .hero h1,
-.dialog-head h2,
+dialog-head h2,
 .section-heading h2,
 .card h2 {
   margin: var(--space-0);
@@ -188,6 +188,26 @@ button {
 .hero__location {
   margin: var(--space-2) 0 0;
   color: var(--hero-text-muted);
+}
+
+.environment-badge {
+  display: inline-flex;
+  align-items: center;
+  margin: var(--space-3) 0 0;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid rgb(251 191 36 / 0.45);
+  border-radius: var(--radius-pill);
+  background: rgb(251 191 36 / 0.16);
+  color: #fef3c7;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 0.75rem 1.5rem rgb(15 23 42 / 0.16);
+}
+
+.environment-badge[hidden] {
+  display: none;
 }
 
 .contact-list {
@@ -212,7 +232,7 @@ button {
   backdrop-filter: blur(0.75rem);
 }
 
-.contact-link:hover,
+contact-link:hover,
 .contact-link:focus-visible,
 .theme-toggle:hover,
 .theme-toggle:focus-visible {
@@ -311,7 +331,7 @@ button {
 
 .card,
 .footer-panel,
-.timeline-card,
+timeline-card,
 .info-block,
 .comment-item,
 .feedback-form {
@@ -365,7 +385,7 @@ button {
   background: var(--surface-1);
 }
 
-.timeline {
+timeline {
   position: relative;
   display: grid;
   gap: var(--space-5);
@@ -382,7 +402,7 @@ button {
   background: var(--accent-2);
 }
 
-.timeline-item {
+timeline-item {
   position: relative;
   display: grid;
   grid-template-columns: minmax(10rem, 12rem) minmax(0, 1fr);
@@ -504,13 +524,13 @@ button {
   background: var(--surface-1);
 }
 
-.runtime-entry dt {
+runtime-entry dt {
   margin: var(--space-0);
   font-size: var(--font-size-xs);
   color: var(--text-1);
 }
 
-.runtime-entry dd {
+runtime-entry dd {
   margin: var(--space-2) 0 0;
   color: var(--text-0);
   word-break: break-word;
@@ -626,7 +646,7 @@ button {
   border: 0;
 }
 
-.field input,
+field input,
 .field textarea {
   inline-size: 100%;
   padding: var(--space-4);
@@ -639,7 +659,7 @@ button {
     box-shadow var(--transition-fast) ease;
 }
 
-.field input:focus-visible,
+field input:focus-visible,
 .field textarea:focus-visible,
 .button:focus-visible,
 .icon-button:focus-visible {
@@ -686,7 +706,7 @@ ul li::marker {
 .comment-item:hover,
 .runtime-entry:hover,
 .info-block:hover,
-.tag-list li:hover,
+tag-list li:hover,
 .highlight-list li:hover {
   border-color: var(--accent-1);
 }

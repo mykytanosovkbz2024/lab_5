@@ -75,6 +75,7 @@
 
       this.nodes = {
         root: document.documentElement,
+        environmentBadge: byId("environment-badge"),
         themeLight: byId("theme-light"),
         themeDark: byId("theme-dark"),
         themeToggleGroup: byId("theme-toggle-group"),
@@ -209,6 +210,42 @@
 
     isValidMode(value) {
       return typeof value === "string" && Config.themeModes.includes(value);
+    },
+  };
+
+  const Environment = {
+    previewPattern: /(?:^|[-.])staging(?:[-.]|$)/i,
+
+    init() {
+      this.render();
+    },
+
+    render() {
+      const badge = Dom.nodes.environmentBadge;
+
+      if (!badge) {
+        return;
+      }
+
+      const label = this.resolveLabel(window.location.hostname);
+
+      if (!label) {
+        badge.hidden = true;
+        badge.textContent = "";
+        return;
+      }
+
+      badge.hidden = false;
+      badge.textContent = `${label} Environment`;
+      badge.setAttribute("aria-label", `Current environment: ${label}`);
+    },
+
+    resolveLabel(hostname) {
+      if (typeof hostname !== "string" || hostname.length === 0) {
+        return "";
+      }
+
+      return this.previewPattern.test(hostname) ? "Staging" : "";
     },
   };
 
@@ -624,6 +661,7 @@
   const App = {
     init() {
       Dom.init();
+      Environment.init();
       Theme.init();
       Runtime.init();
       Comments.init();
