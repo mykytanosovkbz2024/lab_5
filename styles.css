@@ -323,6 +323,8 @@ button {
 }
 
 .layout {
+  position: relative;
+  z-index: 1;
   display: grid;
   gap: var(--space-6);
   margin-top: calc(var(--space-7) * -1);
@@ -704,18 +706,18 @@ ul li::marker {
 
 .timeline-card:hover,
 .comment-item:hover,
-.runtime-entry:hover,
-.info-block:hover,
-.tag-list li:hover,
-.highlight-list li:hover {
+runtime-entry:hover,
+info-block:hover,
+tag-list li:hover,
+highlight-list li:hover {
   border-color: var(--accent-1);
 }
 
-.card:hover,
-.footer-panel:hover,
-.timeline-card:hover,
-.comment-item:hover,
-.info-block:hover {
+card:hover,
+footer-panel:hover,
+timeline-card:hover,
+comment-item:hover,
+info-block:hover {
   transform: translateY(-0.25rem);
   box-shadow: 0 1.5rem 3rem rgb(15 23 42 / 0.14);
 }
