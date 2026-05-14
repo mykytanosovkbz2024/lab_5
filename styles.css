@@ -508,7 +508,7 @@ button {
   color: var(--danger-0);
 }
 
-.status-box[data-state="success"],
+status-box[data-state="success"],
 .form-status[data-state="success"] {
   color: var(--success-0);
 }
@@ -532,7 +532,7 @@ button {
   color: var(--text-1);
 }
 
-.runtime-entry dd {
+runtime-entry dd {
   margin: var(--space-2) 0 0;
   color: var(--text-0);
   word-break: break-word;
@@ -589,7 +589,7 @@ button {
     display var(--transition-base) allow-discrete;
 }
 
-.feedback-dialog:open {
+feedback-dialog:open {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
@@ -661,16 +661,16 @@ button {
     box-shadow var(--transition-fast) ease;
 }
 
-.field input:focus-visible,
-.field textarea:focus-visible,
-.button:focus-visible,
-.icon-button:focus-visible {
+field input:focus-visible,
+field textarea:focus-visible,
+button:focus-visible,
+icon-button:focus-visible {
   outline: none;
   border-color: var(--accent-0);
   box-shadow: 0 0 0 0.25rem light-dark(rgb(21 94 239 / 0.18), rgb(96 165 250 / 0.24));
 }
 
-.dialog-actions {
+dialog-actions {
   display: flex;
   justify-content: end;
   gap: var(--space-3);
@@ -684,12 +684,12 @@ button {
   border-radius: var(--radius-pill);
 }
 
-.button--primary {
+button--primary {
   color: var(--text-inverse);
   background: var(--accent-0);
 }
 
-.button--secondary {
+button--secondary {
   color: var(--text-0);
   border-color: var(--border-0);
   background: var(--surface-1);
@@ -711,6 +711,15 @@ ul li::marker {
 .tag-list li:hover,
 .highlight-list li:hover {
   border-color: var(--accent-1);
+}
+
+:is(.runtime-entry:hover, .info-block:hover, .tag-list li:hover, .highlight-list li:hover) {
+  border-color: var(--accent-1);
+}
+
+:is(.card:hover, .footer-panel:hover, .timeline-card:hover, .comment-item:hover, .info-block:hover) {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 1.5rem 3rem rgb(15 23 42 / 0.14);
 }
 
 .card:hover,
@@ -828,7 +837,7 @@ ul li::marker {
   padding-inline-start: var(--space-7);
 }
 
-.timeline-item {
+timeline-item {
   position: relative;
   display: grid;
   grid-template-columns: minmax(10rem, 12rem) minmax(0, 1fr);
@@ -843,13 +852,13 @@ ul li::marker {
   background: var(--surface-1);
 }
 
-.runtime-entry dt {
+runtime-entry dt {
   margin: var(--space-0);
   font-size: var(--font-size-xs);
   color: var(--text-1);
 }
 
-.runtime-entry dd {
+runtime-entry dd {
   margin: var(--space-2) 0 0;
   color: var(--text-0);
   word-break: break-word;
